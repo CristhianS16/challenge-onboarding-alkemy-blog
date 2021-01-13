@@ -5,9 +5,9 @@ import { Navbar, Nav } from "react-bootstrap";
 const Navigation = () => {
   return (
     <Navbar
-      className="bg-default"
       collapseOnSelect
       expand="lg"
+      bg="dark"
       variant="dark"
       fixed="top"
     >
@@ -16,13 +16,13 @@ const Navigation = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/">
-            <strong>Home</strong>
+            Home
           </Nav.Link>
           <Nav.Link as={Link} to="/form-create">
-            <strong>New post</strong>
+            New post
           </Nav.Link>
           <Nav.Link as={Link} to="/form-edit">
-            <strong>Edit post</strong>
+            Edit post
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
