@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getPosts } from "../helpers/getDataOfPosts";
+import { getPosts } from "../../helpers/getDataOfPosts";
 import CardPost from "./cardPosts";
-import Pages from "./pages";
-import Error from "../components/error";
+import Pages from "../pages";
+import Error from "../error";
 
 const Posts = ({ error, setError, typeError, setTypeError }) => {
   const [dataPosts, setDataPosts] = useState([]);

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
-import Wrapper from "./wrapper";
+import Wrapper from "../wrapper";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import ContentForm from "./contentForm";
-import FindPostById from "./findPostById";
-import Error from "./error";
-import { getPost } from "../helpers/getDataOfPosts";
+import FindPostById from "../findPostById";
+import Error from "../error";
+import { getPost } from "../../helpers/getDataOfPosts";
 
 const EditForm = ({ error, setError, typeError, setTypeError, postId }) => {
   let history = useHistory();
