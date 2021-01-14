@@ -9,6 +9,9 @@ const InputPaginate = ({setSince, setUntil}) => {
       setUntil(value);
     };
   };
+  function handleKeyPress(event) {
+    event.preventDefault();
+  };
 
   return (
     <>
@@ -18,18 +21,22 @@ const InputPaginate = ({setSince, setUntil}) => {
         name="since"
         autoFocus={true}
         defaultValue="0"
+        min='0'
         onChange={(e) => {
           handleChange(e.target.value, "since");
         }}
+        onKeyPress={(e) => handleKeyPress(e)}
       ></input>
       <input
         className="col-md-6 border border-dark shadow rounded"
         type="number"
         name="until"
         defaultValue="10"
+        min='0'
         onChange={(e) => {
           handleChange(e.target.value, "until");
         }}
+        onKeyPress={(e) => handleKeyPress(e)}
       ></input>
     </>
   );
