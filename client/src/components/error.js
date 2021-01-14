@@ -1,13 +1,12 @@
 import React from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import Wrapper from "../components/wrapper";
 import "../assets/css/error.css";
 
 const Error = ({ typeError, message }) => {
-  
-    let history = useHistory();
+  let history = useHistory();
 
-    return (
+  return (
     <Wrapper>
       <div className="row d-flex">
         <div className="col">
@@ -18,9 +17,14 @@ const Error = ({ typeError, message }) => {
         </div>
         <div className="col text-left">
           <p>{message}</p>
-          <button className="btn btn-dark rounded shadow" onClick={ () => {
-            history.push('/');
-          }}>Home</button>
+          <button
+            className="btn btn-dark rounded shadow"
+            onClick={() => {
+              history.push("/");
+            }}
+          >
+            Home
+          </button>
         </div>
       </div>
     </Wrapper>

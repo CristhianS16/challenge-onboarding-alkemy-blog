@@ -1,17 +1,16 @@
 import React from "react";
 
-const InputPaginate = ({setSince, setUntil}) => {
-
+const InputPaginate = ({ setSince, setUntil }) => {
   function handleChange(value, type) {
     if (type === "since") {
       setSince(value);
     } else {
       setUntil(value);
-    };
-  };
+    }
+  }
   function handleKeyPress(event) {
     event.preventDefault();
-  };
+  }
 
   return (
     <>
@@ -21,7 +20,7 @@ const InputPaginate = ({setSince, setUntil}) => {
         name="since"
         autoFocus={true}
         defaultValue="0"
-        min='0'
+        min="0"
         onChange={(e) => {
           handleChange(e.target.value, "since");
         }}
@@ -32,7 +31,7 @@ const InputPaginate = ({setSince, setUntil}) => {
         type="number"
         name="until"
         defaultValue="10"
-        min='0'
+        min="0"
         onChange={(e) => {
           handleChange(e.target.value, "until");
         }}

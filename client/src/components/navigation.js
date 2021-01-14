@@ -4,13 +4,7 @@ import { Navbar, Nav } from "react-bootstrap";
 
 const Navigation = () => {
   return (
-    <Navbar
-      collapseOnSelect
-      expand="lg"
-      bg="dark"
-      variant="dark"
-      fixed="top"
-    >
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
       <Navbar.Brand>Blog</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
@@ -21,7 +15,7 @@ const Navigation = () => {
           <Nav.Link as={Link} to="/form-create">
             New post
           </Nav.Link>
-          <Nav.Link as={Link} to="/form-edit">
+          <Nav.Link as={Link} to="/form-edit/0">
             Edit post
           </Nav.Link>
         </Nav>

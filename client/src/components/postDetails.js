@@ -1,19 +1,20 @@
 import React from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
-const PostDetails = ({dataPost: {id, title, body}}) => {
-
+const PostDetails = ({ dataPost: { id, title, body } }) => {
   let history = useHistory();
 
   return (
     <div className="row d-flex card">
       <div className="bg-dark d-flex justify-content-between align-items-center p-2 mb-2">
-        <button 
+        <button
           className="btn btn-dark rounded"
-          onClick={ () => {
-              history.goBack()
+          onClick={() => {
+            history.goBack();
           }}
-        ><strong>&lArr; Go back</strong></button>
+        >
+          <strong>&lArr; Go back</strong>
+        </button>
         <h2 className="text-white">ID: #{id}</h2>
       </div>
       <img
