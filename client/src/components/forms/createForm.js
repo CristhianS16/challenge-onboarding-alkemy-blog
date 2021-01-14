@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import ContentForm from "./contentForm";
-import "../assets/css/create-form.css";
+import "../../assets/css/create-form.css";
 
 const CreateForm = () => {
   let history = useHistory();

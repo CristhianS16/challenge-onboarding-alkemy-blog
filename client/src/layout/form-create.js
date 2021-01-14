@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../components/wrapper";
 import Title from "../components/title";
-import CreateForm from "../components/createForm";
+import CreateForm from "../components/forms/createForm";
 
 const FormCreate = () => {
   return (

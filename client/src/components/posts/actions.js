@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
-import "../assets/css/cardPosts.css";
+import "../../assets/css/cardPosts.css";
 
 const Actions = ({ id }) => {
   let history = useHistory();

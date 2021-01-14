@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPost } from "../helpers/getDataOfPosts";
 import Wrapper from "../components/wrapper";
-import PostDetails from "../components/postDetails";
+import PostDetails from "../components/posts/postDetails";
 import Error from "../components/error";
 
 const Details = ({ error, setError, typeError, setTypeError }) => {

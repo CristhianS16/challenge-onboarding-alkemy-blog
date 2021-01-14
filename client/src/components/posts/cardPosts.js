@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import Actions from "./actions";
-import "../assets/css/cardPosts.css";
+import "../../assets/css/cardPosts.css";
 
 const CardPost = ({ dataPosts, setError, setTypeError }) => {
   return (

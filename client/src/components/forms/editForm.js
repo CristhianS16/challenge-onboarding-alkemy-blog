@@ -5,7 +5,7 @@ import Wrapper from "../wrapper";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import ContentForm from "./contentForm";
-import FindPostById from "../findPostById";
+import FindPostById from "./findPostById";
 import Error from "../error";
 import { getPost } from "../../helpers/getDataOfPosts";
 

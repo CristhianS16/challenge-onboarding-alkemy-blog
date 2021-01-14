@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPosts } from "../helpers/getDataOfPosts";
+import { getPosts } from "../../helpers/getDataOfPosts";
 
 const FindPostById = ({
   error,

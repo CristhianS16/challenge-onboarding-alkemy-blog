@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Wrapper from "../components/wrapper";
 import Title from "../components/title";
-import EditForm from "../components/editForm";
+import EditForm from "../components/forms/editForm";
 
 const FormEdit = ({
   error,
