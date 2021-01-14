@@ -1,0 +1,12 @@
+*{
+    font-family: 'Nunito Sans', sans-serif;
+}
+h2{
+    font-weight: 900 !important;
+}
+h1 span{
+    font-weight: 600;
+}
+p{
+    font-size: 1.2em;
+}
