@@ -9,7 +9,7 @@ const getAllPosts = async (req, res) => {
             offset: parseInt(start),
             limit: parseInt(end)
         });
-        res.json(posts);
+        res.json({status: 200, data: posts});
     } catch (error) {
         console.error(error);
     };
