@@ -6,10 +6,14 @@ const getAllPosts = async (req, res) => {
 
     try {
         const posts = await Post.findAll({
+            attributes: {
+                exclude: ['content']
+            },
             offset: parseInt(start),
-            limit: parseInt(end)
+            limit: parseInt(end),
+            order: [['date', 'DESC']]
         });
-        res.json({status: 200, data: posts});
+        res.json(posts);
     } catch (error) {
         console.error(error);
     };

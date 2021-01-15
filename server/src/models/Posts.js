@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db.js');
+const moment = require('moment');
 
 const Post = db.define('posts', {
     title: {
@@ -15,7 +16,10 @@ const Post = db.define('posts', {
         type: Sequelize.STRING
     },
     date: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        get: function () {
+            return moment(this.getDataValue('date')).format('YYYY-MM-DD');
+        }
     }
 });
 
