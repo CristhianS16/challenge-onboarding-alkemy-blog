@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-const PostDetails = ({ dataPost: { id, title, body } }) => {
+const PostDetails = ({ dataPost: { id, title, content, category, image, date } }) => {
   let history = useHistory();
 
   return (
@@ -18,19 +18,19 @@ const PostDetails = ({ dataPost: { id, title, body } }) => {
         <h2 className="text-white">ID: #{id}</h2>
       </div>
       <img
-        src="https://via.placeholder.com/300"
+        src={image}
         alt="placeholder"
         className="card-img-bottom col"
       ></img>
       <div className="col card-body">
         <h1 className="card-title">{title}</h1>
-        <span className="card-text">{body}</span>
+        <span className="card-text">{content}</span>
         <div className="d-flex justify-content-between pt-4">
           <p className="card-text">
-            Categoría: <strong>Comida</strong>
+            Categoría: <strong>{category ? category : 'No category'}</strong>
           </p>
           <p className="card-text">
-            <small className="text-muted">16/01/2020</small>
+            <small className="text-muted">{date}</small>
           </p>
         </div>
       </div>

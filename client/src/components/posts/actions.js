@@ -11,7 +11,7 @@ const Actions = ({ id }) => {
     if (type === "edit") {
       history.push(`/form-edit/${id}`);
     } else {
-      const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
+      const url = `http://localhost:4000/posts/${id}`;
       try {
         await Axios.delete(url);
         history.go(0);

@@ -4,10 +4,10 @@ export async function getPosts(since, until, findAll) {
   try {
     let url;
     if (findAll) {
-      url = `https://jsonplaceholder.typicode.com/posts`;
+      url = `http://localhost:4000/posts/`;
     } else {
-      url = `https://jsonplaceholder.typicode.com/posts?_start=${since}&_end=${until}`;
-    }
+      url = `http://localhost:4000/posts/${since}/${until}`;
+    };
     const data = await Axios.get(url);
     const posts = await data.data;
 
@@ -15,13 +15,13 @@ export async function getPosts(since, until, findAll) {
   } catch (error) {
     if (error.response.status === 404) {
       return error.response.status;
-    }
-  }
-}
+    };
+  };
+};
 
 export async function getPost(id) {
   try {
-    const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
+    const url = `http://localhost:4000/posts/${id}`;
     const data = await Axios.get(url);
     const post = await data.data;
 
@@ -29,6 +29,6 @@ export async function getPost(id) {
   } catch (error) {
     if (error.response.status === 404) {
       return error.response.status;
-    }
-  }
-}
+    };
+  };
+};

@@ -13,7 +13,7 @@ const FormEdit = ({
   setDataToEdit,
 }) => {
   let { id } = useParams();
-
+  
   return (
     <Wrapper>
       <Title title="Edit a post" />

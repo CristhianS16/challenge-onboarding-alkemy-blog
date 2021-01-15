@@ -1,15 +1,19 @@
 import React from "react";
 import { Form, Col, Button } from "react-bootstrap";
+import { useParams } from 'react-router-dom';
 
 const ContentForm = ({
   register,
   errors,
-  dataToEdit: { title, body, id },
-  typeForm,
-}) => {
+  dataToEdit: { title, content, image, category },
+  typeForm
+  }) => {
+
+  const { id } = useParams();
+
   return (
     <>
-      <Form.Group as={Col} md="6" key={id}>
+      <Form.Group as={Col} md="6">
         <Form.Label>Title</Form.Label>
         <Form.Control
           name="title"
@@ -31,9 +35,9 @@ const ContentForm = ({
         <Form.Control
           as="textarea"
           className="text-area"
-          name="body"
+          name="content"
           type="textarea"
-          defaultValue={body}
+          defaultValue={content}
           placeholder="Content"
           ref={register({
             required: true,
@@ -45,6 +49,7 @@ const ContentForm = ({
         <Form.Control
           name="category"
           type="text"
+          defaultValue={category}
           placeholder="Category"
           ref={register({
             required: false,
@@ -54,6 +59,8 @@ const ContentForm = ({
         <Form.Control
           name="image"
           type="text"
+          defaultValue={image}
+          placeholder="Image url"
           ref={register({
             required: false,
             pattern: {
@@ -67,7 +74,7 @@ const ContentForm = ({
         </div>
       </Form.Group>
       <Button className="col-8" variant="dark" type="submit">
-        Add new post
+        {typeForm || id ? 'Edit' : 'Add' } post
       </Button>
     </>
   );

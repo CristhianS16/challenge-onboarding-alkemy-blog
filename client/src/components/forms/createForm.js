@@ -11,7 +11,7 @@ const CreateForm = () => {
 
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = async (data) => {
-    const url = "https://jsonplaceholder.typicode.com/posts/";
+    const url = "http://localhost:4000/posts/";
     try {
       await Axios.post(url, data);
       history.push("/");

@@ -14,14 +14,20 @@ const EditForm = ({ error, setError, typeError, setTypeError, postId }) => {
 
   const [dataToEdit, setDataToEdit] = useState({
     title: "",
-    body: "",
+    content: "",
+    image: "",
+    category: ""
   });
 
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = async (data) => {
-    const url = `https://jsonplaceholder.typicode.com/posts/${dataToEdit.id}`;
+    data.id = Number(dataToEdit.id);
+    if(data.image === ''){
+      data.image = 'https://via.placeholder.com/450x300.jpg';
+    };
+    const url = `http://localhost:4000/posts/${data.id}`;
     try {
-      await Axios.put(url);
+      await Axios.patch(url, data);
       history.push("/");
     } catch (error) {
       console.error(error);
@@ -75,13 +81,13 @@ const EditForm = ({ error, setError, typeError, setTypeError, postId }) => {
             setDataToEdit={setDataToEdit}
           />
           <div className="text-left">
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form onSubmit={handleSubmit(onSubmit)} key={dataToEdit.id}>
               <Form.Row className="container d-flex justify-content-center">
                 <ContentForm
                   register={register}
                   errors={errors}
                   dataToEdit={dataToEdit}
-                  typeForm={false}
+                  typeForm='Edit'
                 />
               </Form.Row>
             </Form>
