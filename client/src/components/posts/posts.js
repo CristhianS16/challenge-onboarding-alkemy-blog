@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { getPosts } from "../../helpers/getDataOfPosts";
 import CardPost from "./cardPosts";
-import Pages from "../pages";
 import Error from "../error";
 
 const Posts = ({ error, setError, typeError, setTypeError }) => {
   const [dataPosts, setDataPosts] = useState([]);
-  const [since, setSince] = useState("0");
-  const [until, setUntil] = useState("10");
 
   useEffect(() => {
     async function getDataHome() {
       try {
-        const posts = await getPosts(since, until, false);
+        const posts = await getPosts();
         if (posts !== 404) {
           setError(false);
           setDataPosts(posts);
@@ -26,7 +23,7 @@ const Posts = ({ error, setError, typeError, setTypeError }) => {
     }
 
     getDataHome();
-  }, [setDataPosts, since, until, setError, setTypeError]);
+  }, [setDataPosts, setError, setTypeError]);
 
   return (
     <div className="row">
@@ -37,7 +34,6 @@ const Posts = ({ error, setError, typeError, setTypeError }) => {
         />
       ) : (
         <div className="col-md-12">
-          <Pages setSince={setSince} setUntil={setUntil} />
           <CardPost dataPosts={dataPosts} />
         </div>
       )}

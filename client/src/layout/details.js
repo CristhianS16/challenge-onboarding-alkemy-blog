@@ -11,7 +11,9 @@ const Details = ({ error, setError, typeError, setTypeError }) => {
   const [dataPost, setDataPost] = useState({
     title: "",
     id: "",
-    body: "",
+    content: "",
+    image: "",
+    category: ""
   });
 
   useEffect(() => {

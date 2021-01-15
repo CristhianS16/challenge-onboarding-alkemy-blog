@@ -48,7 +48,7 @@ const FindPostById = ({
           className="col rounded bg-dark text-white mb-2"
           onChange={handleSelect}
         >
-          <option value="">Choose a post to edit</option>
+          <option value="" disabled={true} selected>Choose a post to edit</option>
           {posts.map(({ id, title }) => (
             <option key={id} value={id}>
               Post: {title}
