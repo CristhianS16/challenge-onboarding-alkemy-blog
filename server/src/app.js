@@ -1,6 +1,14 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
+const db = require('./config/db.js');
 const app = express();
+
+// Connect to database
+db.authenticate()
+    .then( () => console.log('DB is connected'))
+    .catch( error => console.error(error));
 
 const port = process.env.PORT || '4000';
 
