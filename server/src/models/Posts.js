@@ -10,7 +10,10 @@ const Post = db.define('posts', {
         type: Sequelize.STRING
     },
     image: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            is: /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g
+        }
     },
     category: {
         type: Sequelize.STRING

@@ -13,7 +13,7 @@ const createPost = async (req, res) => {
             });
             res.json({status: 201, message: 'Post created'});
         } catch (error) {
-            console.log('Error: ', error);
+            res.json({message: error.message});
         };
     } else {
         res.json({status: 409, message: 'Title and content are required.' })
