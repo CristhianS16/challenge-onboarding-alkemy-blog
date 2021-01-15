@@ -1,6 +1,6 @@
 const Post = require("../models/Posts.js");
 
-const getAllPosts = async (req, res) => {
+const getPostsPaginate = async (req, res) => {
   const { start, end } = req.params;
 
   try {
@@ -16,6 +16,28 @@ const getAllPosts = async (req, res) => {
   } catch (error) {
     console.log("Error: ", error);
   }
+};
+
+const getAllPosts = async (req, res) => {
+  try {
+    const posts = await Post.findAll({
+      order: [['date', 'DESC']]
+    });
+    res.json(posts);
+  } catch (error) {
+    res.status(404).json(error);
+  };
+};
+
+const getPost = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const post = await Post.findOne({ where: { id } });
+    res.json(post);
+  } catch (error) {
+    res.status(404).json({message: 'Post not found'});
+  };
 };
 
 const deletePost = async (req, res) => {
@@ -38,6 +60,8 @@ const deletePost = async (req, res) => {
 };
 
 module.exports = {
+  getPostsPaginate,
   getAllPosts,
   deletePost,
+  getPost
 };
