@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const {
-  getPostsPaginate,
   getAllPosts,
   getPost,
   deletePost,
@@ -9,7 +8,6 @@ const {
 const { createPost } = require("../controllers/formCreateController.js");
 const updatePost = require("../controllers/formEditController.js");
 
-router.get("/posts/:start/:end", getPostsPaginate);
 router.get('/posts/', getAllPosts);
 router.get('/posts/:id', getPost);
 router.post("/posts", createPost);

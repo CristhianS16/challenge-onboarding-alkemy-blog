@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import Wrapper from "../wrapper";
@@ -11,13 +11,17 @@ import { getPost } from "../../helpers/getDataOfPosts";
 
 const EditForm = ({ error, setError, typeError, setTypeError, postId }) => {
   let history = useHistory();
-
-  const [dataToEdit, setDataToEdit] = useState({
-    title: "",
+  const emptyData = useMemo( () => {
+    return {title: "",
     content: "",
     image: "",
-    category: ""
-  });
+    category: "",
+    id: ""
+    };
+  }, [])
+  
+
+  const [dataToEdit, setDataToEdit] = useState(emptyData);
 
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = async (data) => {
@@ -49,8 +53,10 @@ const EditForm = ({ error, setError, typeError, setTypeError, postId }) => {
         } catch (error) {}
       }
       getDataForEdit();
+    } else {
+      setDataToEdit(emptyData);
     }
-  }, [postId, setError, setTypeError]);
+  }, [postId, setError, setTypeError, emptyData]);
 
   return (
     <Wrapper>

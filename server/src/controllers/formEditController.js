@@ -21,10 +21,10 @@ const updatePost = async (req, res) => {
         );
         res.json({ rows: rowsUpdated });
       } else {
-        res.json({ status: 404, message: "Post not found" });
+        res.status(404).json({ message: "Post not found" });
       }
     } catch (error) {
-      res.json({ message: error.message });
+      res.status(500).json({ message: error.message });
     }
   } else {
     res.json({

@@ -1,13 +1,8 @@
 import Axios from "axios";
 
-export async function getPosts(since, until, findAll) {
+export async function getPosts() {
   try {
-    let url;
-    if (findAll) {
-      url = `http://localhost:4000/posts/`;
-    } else {
-      url = `http://localhost:4000/posts/${since}/${until}`;
-    };
+    const url = `http://localhost:4000/posts/`;
     const data = await Axios.get(url);
     const posts = await data.data;
 
@@ -24,7 +19,7 @@ export async function getPost(id) {
     const url = `http://localhost:4000/posts/${id}`;
     const data = await Axios.get(url);
     const post = await data.data;
-
+    
     return post;
   } catch (error) {
     if (error.response.status === 404) {
