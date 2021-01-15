@@ -24,7 +24,7 @@ const updatePost = async (req, res) => {
         res.json({ status: 404, message: "Post not found" });
       }
     } catch (error) {
-      console.log("Error: ", error);
+      res.json({ message: error.message });
     }
   } else {
     res.json({
