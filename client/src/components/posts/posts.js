@@ -1,30 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { getPosts } from "../../helpers/getDataOfPosts";
+import React from "react";
 import CardPost from "./cardPosts";
 import Error from "../error";
 
-const Posts = ({ error, setError, typeError, setTypeError }) => {
-  const [dataPosts, setDataPosts] = useState([]);
-
-  useEffect(() => {
-    async function getDataHome() {
-      try {
-        const posts = await getPosts();
-        if (posts !== 404) {
-          setError(false);
-          setDataPosts(posts);
-        } else {
-          setError(true);
-          setTypeError(posts);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    getDataHome();
-  }, [setDataPosts, setError, setTypeError]);
-
+const Posts = ({ error, typeError, dataPosts }) => {
   return (
     <div className="row">
       {error ? (
@@ -33,9 +11,7 @@ const Posts = ({ error, setError, typeError, setTypeError }) => {
           message="The posts you are looking for does not exist. How you got here is a mistery. But you can click the button below to go back to the homepage. :)"
         />
       ) : (
-        <div className="col-md-12">
-          <CardPost dataPosts={dataPosts} />
-        </div>
+        <CardPost dataPosts={dataPosts} />
       )}
     </div>
   );

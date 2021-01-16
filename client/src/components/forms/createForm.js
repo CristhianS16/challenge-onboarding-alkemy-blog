@@ -1,9 +1,9 @@
 import React from "react";
-import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import ContentForm from "./contentForm";
+import handleOnSubmit from "../../services/handleOnSubmit";
 import "../../assets/css/create-form.css";
 
 const CreateForm = () => {
@@ -11,13 +11,7 @@ const CreateForm = () => {
 
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = async (data) => {
-    const url = "http://localhost:4000/posts/";
-    try {
-      await Axios.post(url, data);
-      history.push("/");
-    } catch (error) {
-      console.error(error);
-    }
+    handleOnSubmit("post", data, data.id, history);
   };
 
   return (

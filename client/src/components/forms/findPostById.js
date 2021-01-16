@@ -1,31 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getPosts } from "../../helpers/getDataOfPosts";
+import getDataPosts from '../../services/getDataPosts';
 
 const FindPostById = ({
-  error,
   setError,
-  typeError,
   setTypeError,
   setDataToEdit,
 }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    async function getDataPosts() {
-      try {
-        const posts = await getPosts("", "", true);
-        if (posts !== 404) {
-          setError(false);
-          setPosts(posts);
-        } else {
-          setError(true);
-          setTypeError(posts);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getDataPosts();
+    getDataPosts(setError, setPosts, setTypeError);
   }, [setError, setTypeError]);
 
   function handleSelect(e) {
