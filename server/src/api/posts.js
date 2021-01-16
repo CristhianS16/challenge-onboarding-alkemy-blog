@@ -1,12 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const {
-  getAllPosts,
-  getPost,
-  deletePost,
-} = require("../controllers/homeControllers.js");
-const { createPost } = require("../controllers/formCreateController.js");
-const updatePost = require("../controllers/formEditController.js");
+const getAllPosts = require('../controllers/getAllPosts.js');
+const getPost = require('../controllers/getPost.js');
+const createPost = require('../controllers/createPost.js');
+const updatePost = require('../controllers/updatePost.js');
+const deletePost = require('../controllers/deletePost.js');
 
 router.get('/posts/', getAllPosts);
 router.get('/posts/:id', getPost);
