@@ -17,9 +17,6 @@ const EditForm = ({ error, setError, typeError, setTypeError, postId }) => {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = async (data) => {
     data.id = Number(dataToEdit.id);
-    if (data.image === "") {
-      data.image = "https://via.placeholder.com/450x300.jpg";
-    }
     handleOnSubmit("edit", data, data.id, history);
   };
 
