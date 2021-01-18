@@ -1,9 +1,8 @@
 import Axios from "axios";
+import { api } from "../config";
 
 export default async function handleOnSubmit(type, data, id, history) {
-  const url = id
-    ? `http://localhost:4000/posts/${id}`
-    : `http://localhost:4000/posts/`;
+  const url = id ? `${api}/posts/${id}` : `${api}/posts/`;
 
   if (type === "post") {
     try {

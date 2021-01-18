@@ -1,8 +1,9 @@
 import Axios from "axios";
+import { api } from "../config";
 
 export default async function getPost(id) {
   try {
-    const url = `http://localhost:4000/posts/${id}`;
+    const url = `${api}/posts/${id}`;
     const data = await Axios.get(url);
     const post = await data.data;
 
