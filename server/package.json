@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Server for Challenge Alkemy - Blog",
-  "main": "app.js",
+  "main": "src/app.js",
   "engines": {
     "node": "14.x",
     "npm": "6.14.11"
