@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Wrapper from "../components/wrapper";
 import Title from "../components/title";
 import PostsView from "../components/posts/postsView";
 
 const Home = ({ error, setError, typeError, setTypeError }) => {
+  const [dataPosts, setDataPosts] = useState([]);
+
   return (
     <Wrapper>
-      <Title title="Posts" />
+      {dataPosts.length ? (
+        <Title title='Posts' />
+      ) : (
+        <Title title='¡Hello!, add new post :)' />
+      )}
       <PostsView
+        dataPosts={dataPosts}
+        setDataPosts={setDataPosts}
         error={error}
         setError={setError}
         typeError={typeError}

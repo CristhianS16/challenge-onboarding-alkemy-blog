@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-import getDataPosts from '../../services/getDataPosts';
+import getDataPosts from "../../services/getDataPosts";
 
-const FindPostById = ({
-  setError,
-  setTypeError,
-  setDataToEdit,
-}) => {
+const FindPostById = ({ setError, setTypeError, setDataToEdit }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -26,13 +22,16 @@ const FindPostById = ({
   }
 
   return (
-    <div className="row">
-      <div className="col-md-12 d-flex justify-content-center">
+    <div className='row'>
+      <div className='col-md-12 d-flex justify-content-center'>
         <select
-          className="col rounded bg-dark text-white mb-2"
+          defaultValue={""}
+          className='col rounded bg-dark text-white mb-2'
           onChange={handleSelect}
         >
-          <option value="" disabled={true} selected>Choose a post to edit</option>
+          <option value='' disabled={true}>
+            Choose a post to edit
+          </option>
           {posts.map(({ id, title }) => (
             <option key={id} value={id}>
               Post: {title}

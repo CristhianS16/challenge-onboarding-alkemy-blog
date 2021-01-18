@@ -21,7 +21,7 @@ const EditFormView = ({
       {error ? (
         <Error
           typeError={typeError}
-          message="The post you are looking for does not exist. How you got here is a mistery. But you can click the button below to go back to the homepage. :)"
+          message='The post you are looking for does not exist. How you got here is a mistery. But you can click the button below to go back to the homepage. :)'
         />
       ) : postId !== "0" ? (
         <FormContainer

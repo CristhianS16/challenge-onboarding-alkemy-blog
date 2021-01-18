@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getPost } from "../helpers/getDataOfPosts";
+import getPost from "../services/getPost";
 import Wrapper from "../components/wrapper";
 import PostDetails from "../components/posts/postDetails";
 import Error from "../components/error";
@@ -13,7 +13,7 @@ const Details = ({ error, setError, typeError, setTypeError }) => {
     id: "",
     content: "",
     image: "",
-    category: ""
+    category: "",
   });
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Details = ({ error, setError, typeError, setTypeError }) => {
       {error ? (
         <Error
           typeError={typeError}
-          message="The post you are looking for does not exist. How you got here is a mistery. But you can click the button below to go back to the homepage. :)"
+          message='The post you are looking for does not exist. How you got here is a mistery. But you can click the button below to go back to the homepage. :)'
         />
       ) : (
         <PostDetails dataPost={dataPost} />

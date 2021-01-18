@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-export async function getPosts() {
+export default async function getPosts() {
   try {
     const url = `http://localhost:4000/posts/`;
     const data = await Axios.get(url);

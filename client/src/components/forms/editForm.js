@@ -20,7 +20,7 @@ const EditForm = ({ error, setError, typeError, setTypeError, postId }) => {
     if (data.image === "") {
       data.image = "https://via.placeholder.com/450x300.jpg";
     }
-    handleOnSubmit("edit", data, "", history);
+    handleOnSubmit("edit", data, data.id, history);
   };
 
   useEffect(() => {

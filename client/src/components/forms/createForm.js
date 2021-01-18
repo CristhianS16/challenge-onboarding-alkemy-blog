@@ -15,9 +15,9 @@ const CreateForm = () => {
   };
 
   return (
-    <div className="text-left">
+    <div className='text-left'>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Row className="container d-flex justify-content-center">
+        <Form.Row className='container d-flex justify-content-center'>
           <ContentForm
             register={register}
             errors={errors}

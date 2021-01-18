@@ -1,10 +1,9 @@
 import Axios from "axios";
 
 export default async function handleOnSubmit(type, data, id, history) {
-  const url =
-    id !== ""
-      ? `http://localhost:4000/posts/${id}`
-      : `http://localhost:4000/posts/`;
+  const url = id
+    ? `http://localhost:4000/posts/${id}`
+    : `http://localhost:4000/posts/`;
 
   if (type === "post") {
     try {
